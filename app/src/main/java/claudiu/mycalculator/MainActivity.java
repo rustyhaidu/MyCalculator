@@ -1,4 +1,4 @@
-
+// TODO - CODE REVIEW - andrei | 9/7/15 - What's with these whitespaces?!
 
 package claudiu.mycalculator;
 import android.app.Activity;
@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+// TODO - CODE REVIEW - andrei | 9/7/15 - Code is not formatted!
 public class MainActivity extends Activity {
     /** Called when the activity is first created. */
-    boolean clear_screen = true;
-    boolean operator_state = false ;
+    // TODO - CODE REVIEW - andrei | 9/7/15 - Use private modifiers!
+    boolean clear_screen = true;// TODO - CODE REVIEW - andrei | 9/7/15 - Please use appropriate name: clearScreen
+    boolean operator_state = false ;// TODO - CODE REVIEW - andrei | 9/7/15 - space before ;? why?
     boolean insert_state = false;
     boolean last_click = false;
-    float Operand1 = 0f;
+    float Operand1 = 0f;// TODO - CODE REVIEW - andrei | 9/7/15 - Please use appropriate name: operand1
     float Operand2 = 0f;
     float Answer = 0f;
     String Operator = "";
@@ -21,9 +23,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void insert_text(String text){
+    public void insert_text(String text){// TODO - CODE REVIEW - andrei | 9/7/15 - Method names in JAVA should NEVER be written like this. CAMEL CASE please!
         EditText screen = (EditText) findViewById(R.id.screen);
-        if (this.clear_screen){
+        if (this.clear_screen){// TODO - CODE REVIEW - andrei | 9/7/15 - you don't need to use this. everywhere.
             screen.setText("");
             this.clear_screen = false;
         }
@@ -31,7 +33,7 @@ public class MainActivity extends Activity {
         this.last_click = true;
         screen.append(text);
     }
-    public void set_operator(String operator){
+    public void set_operator(String operator){// TODO - CODE REVIEW - andrei | 9/7/15 - same here! method name!!
         EditText screen = (EditText) findViewById(R.id.screen);
         if (screen.getText().toString().equals(".")) screen.setText("0");
         if (this.insert_state && this.operator_state && this.last_click){
@@ -96,7 +98,7 @@ public class MainActivity extends Activity {
 
         screen.setText(this.Answer + "");
     }
-    public void ButtonClickHandler(View v){
+    public void ButtonClickHandler(View v){// TODO - CODE REVIEW - andrei | 9/7/15 - What is the rule for method names?!
         EditText screen = (EditText) findViewById(R.id.screen);
         switch(v.getId()){
             case R.id.button0 : insert_text("0"); break;
